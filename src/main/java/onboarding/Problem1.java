@@ -9,10 +9,7 @@ class Problem1 {
             return -1;
         }
 
-        int pobiNum = getMaxResult(pobi);
-        int crongNum = getMaxResult(crong);
-
-        return getWinner(pobiNum, crongNum);
+        return getWinner(getMaxResult(pobi), getMaxResult(crong));
     }
 
     private static int getWinner(int pobiNum, int crongNum) {
@@ -24,8 +21,14 @@ class Problem1 {
         return 0;
     }
 
+    private static boolean isEven(int num) {
+        return num%2 == 0;
+    }
+    private static boolean isOdd(int num) {
+        return num%2 == 1;
+    }
     private static boolean isInvalid(List<Integer> pages){
-        return pages.size() != 2 || pages.get(1) - pages.get(0) != 1;
+        return pages.size() != 2 || !isOdd(pages.get(0)) || !isEven(pages.get(1)) || pages.get(1) - pages.get(0) != 1;
     }
 
     private static int getMaxResult(List<Integer> pages) {
