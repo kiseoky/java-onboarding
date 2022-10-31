@@ -34,13 +34,13 @@ class Problem1 {
     private static int getMaxResult(List<Integer> pages) {
         int maxResult = 0;
         for (int page : pages) {
-            List<Integer> dividedNumber = divideNumber(page);
-            maxResult = Math.max(maxResult, sum(dividedNumber));
-            maxResult = Math.max(maxResult, multiply(dividedNumber));
+            List<Integer> splitNumbers = splitNumber(page);
+            maxResult = Math.max(maxResult, sum(splitNumbers));
+            maxResult = Math.max(maxResult, multiply(splitNumbers));
         }
         return maxResult;
     }
-    private static List<Integer> divideNumber(int num) {
+    private static List<Integer> splitNumber(int num) {
         ArrayList<Integer> arrNum = new ArrayList<>();
         while(num > 0) {
             arrNum.add(num %10);
